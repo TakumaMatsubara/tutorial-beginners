@@ -12,6 +12,6 @@ class Person (val firstName: String = "Takuma", val lastName: String = "Matsubar
 
     fun printInfo() {
         val nickNameToPrint = nickName ?: "no nickname"
-        println("$firstName ($nickNameToPrint) $lastName")
+        println("$firstName $lastName ($nickNameToPrint)")
     }
 }
