@@ -35,14 +35,19 @@ sealed class Entity() {
     data class Hard(val id: String, val name: String, val multiplier: Float): Entity()
 }
 
+fun Entity.Medium.printInfo() {
+    println("Medium class: $id")
+}
+
+val Entity.Medium.info: String
+    get() = "some info"
+
 fun main() {
-    val entity:Entity = EntityFactory.create(EntityType.EASY)
-    val msg = when (entity) {
-        Entity.Help -> "help class"
-        is Entity.Easy -> "easy class"
-        is Entity.Medium -> "medium class"
-        is Entity.Hard -> "hard class"
+    val entity1 = Entity.Easy("id", "name")
+    val entity2 = EntityFactory.create(EntityType.MEDIUM)
+    if (entity2 is Entity.Medium) {
+        entity2.printInfo()
+        println(entity2.info)
     }
-    println(msg)
 }
 
